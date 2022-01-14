@@ -6,7 +6,7 @@ from distutils.dir_util import copy_tree
 
 path = "C:\Preset_MC"
 mc_path = "C:\MC_SERVERS"
-version = "1.18.1"
+version = "1.12.2"
 id = "LEADTV"
 
 def main():
@@ -39,7 +39,9 @@ def __setting_mc(__version, __id):
     if (os.path.exists('{}\{}'.format(path, __version))):
         print('copy the folder')
         copy_tree('{}\{}'.format(path, __version), '{}\{}_{}'.format(mc_path, __id, __version))
-        print('complete')
+        print('complete, start the mc server')
+        os.chdir('{}\{}_{}'.format(mc_path, __id, __version))
+        os.system('java -Xms2G -Xmx2G -jar {}\{}_{}\craftbukkit.jar'.format(mc_path, __id, __version))
         return True
     else:
         print('{} version preset is not exist'.format(__version))
