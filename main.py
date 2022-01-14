@@ -8,6 +8,7 @@ path = "C:\Preset_MC"
 mc_path = "C:\MC_SERVERS"
 version = "1.12.2"
 id = "LEADTV"
+ram = "2G"
 
 def main():
     print('Ready AutoMC')
@@ -41,7 +42,7 @@ def __setting_mc(__version, __id):
         copy_tree('{}\{}'.format(path, __version), '{}\{}_{}'.format(mc_path, __id, __version))
         print('complete, start the mc server')
         os.chdir('{}\{}_{}'.format(mc_path, __id, __version))
-        os.system('java -Xms2G -Xmx2G -jar {}\{}_{}\craftbukkit.jar'.format(mc_path, __id, __version))
+        os.system('java -Xms' + ram + ' -Xmx' + ram + ' -jar {}\{}_{}\craftbukkit.jar'.format(mc_path, __id, __version))
         return True
     else:
         print('{} version preset is not exist'.format(__version))
