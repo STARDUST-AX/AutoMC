@@ -49,3 +49,7 @@ def __setting_mc(__version, __id):
         return False
     
 main()
+
+# TODO
+# - JDK 17 / 9 Auto Selector
+# - Other...
